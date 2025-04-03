@@ -37,7 +37,7 @@ export default function Providers({children}: {children: React.ReactNode}) {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         apiUrl={"cm8ey4k5100pqguea5tdhv0om"}
-        appId={"<enter an Alchemy API key>"}
+        appId={"cm8ey4k5100pqguea5tdhv0om"}
         config={privyConfig}
       >
             <QueryClientProvider client={queryClient}>

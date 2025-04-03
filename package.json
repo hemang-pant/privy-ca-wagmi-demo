@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "next -p 4000",
-    "build": "next build",
+    "build": "npm install --force && next build",
     "start": "next start",
     "clean": "rm -rf .next/cache && rm -rf ./node_modules",
     "format": "next lint --fix && npx prettier --write \"{components,lib,app,styles}/**/*.{ts,tsx,js,jsx}\"",
@@ -32,8 +32,8 @@
     "eslint-config-next": "13.1.1",
     "ethers": "5.7.2",
     "next": "^14.1.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "typescript": "~5.1.6",
     "viem": "^2.16.0",
     "wagmi": "^2.10.4"
