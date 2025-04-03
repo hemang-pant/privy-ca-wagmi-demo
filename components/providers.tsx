@@ -7,6 +7,7 @@ import {mainnet, sepolia} from 'viem/chains';
 import type {PrivyClientConfig} from '@privy-io/react-auth';
 import {PrivyProvider} from '@privy-io/react-auth';
 import {WagmiProvider, createConfig} from '@privy-io/wagmi';
+import { CAProvider } from '@arcana/ca-wagmi';
 
 const queryClient = new QueryClient();
 
@@ -32,18 +33,20 @@ const privyConfig: PrivyClientConfig = {
 
 export default function Providers({children}: {children: React.ReactNode}) {
   return (
-    <PrivyProvider
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      apiUrl={process.env.NEXT_PUBLIC_PRIVY_AUTH_URL as string}
-      appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID as string}
-      config={privyConfig}
-    >
-      <QueryClientProvider client={queryClient}>
+      <PrivyProvider
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        apiUrl={process.env.NEXT_PUBLIC_PRIVY_AUTH_URL as string}
+        appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID as string}
+        config={privyConfig}
+      >
+            <QueryClientProvider client={queryClient}>
         <WagmiProvider config={wagmiConfig} reconnectOnMount={false}>
-          {children}
+          <CAProvider>
+            {children}
+          </CAProvider>
         </WagmiProvider>
-      </QueryClientProvider>
-    </PrivyProvider>
+        </QueryClientProvider>
+      </PrivyProvider>
   );
 }
