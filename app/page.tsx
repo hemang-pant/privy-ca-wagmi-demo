@@ -32,7 +32,7 @@ import { useCAFn } from "@arcana/ca-wagmi"
 import {usePrivy, useWallets} from '@privy-io/react-auth';
 import {useSetActiveWallet} from '@privy-io/wagmi';
 
-import wagmiPrivyLogo from '../public/wagmi_privy_logo.png';
+import wagmiPrivyLogo from '../public/arcana_x_privy.png';
 import { useState } from 'react';
 import { Field, Label, Select, Input } from '@headlessui/react';
 
@@ -317,9 +317,6 @@ export default function Home() {
                     </Field>
                   </>
                 )}
-              </>
-                  )
-                }
                 {
                   bridgeVal.open && (
                     <>
@@ -419,6 +416,9 @@ export default function Home() {
                 }
                 <br />
                 <Button onClick_={logout} cta="Logout from Privy" />
+              </>
+                  )
+                }
             
           </div>
           <div className="border-1 flex flex-col items-start gap-2 rounded border border-black bg-slate-100 p-3">
